@@ -2,16 +2,16 @@ import React from 'react';
 
 interface LogoProps {
   className?: string;
-  variant?: 'light' | 'dark' | 'full';
+  variant?: 'light' | 'dark' | 'auto';
   showSubtitle?: boolean;
 }
 
 export const Logo: React.FC<LogoProps> = ({
   className = '',
-  variant = 'full',
+  variant = 'auto',
   showSubtitle = true,
 }) => {
-  const isDarkBg = variant === 'light';
+  const isForcedLightText = variant === 'light';
 
   return (
     <div className={`flex items-center gap-2.5 ${className}`}>
@@ -70,15 +70,19 @@ export const Logo: React.FC<LogoProps> = ({
       <div className="flex flex-col leading-tight">
         <span
           className={`font-extrabold tracking-tight text-base sm:text-lg ${
-            isDarkBg ? 'text-white' : 'text-slate-950'
+            isForcedLightText
+              ? 'text-white'
+              : 'text-slate-950 dark:text-white'
           }`}
         >
-          Richard <span className="text-blue-600">Phone Solutions</span>
+          Richard <span className="text-blue-600 dark:text-blue-400">Phone Solutions</span>
         </span>
         {showSubtitle && (
           <span
             className={`text-[10px] uppercase font-semibold tracking-wider ${
-              isDarkBg ? 'text-slate-300' : 'text-slate-500'
+              isForcedLightText
+                ? 'text-slate-300'
+                : 'text-slate-500 dark:text-slate-400'
             }`}
           >
             Omega Richard Enterprise

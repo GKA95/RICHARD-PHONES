@@ -220,11 +220,11 @@ export const RepairForm: React.FC<RepairFormProps> = ({ initialService }) => {
   const isFormspreeConfigured = !FORMSPREE_ENDPOINT.includes('YOUR_FORM_ID');
 
   return (
-    <section id="repair-form" className="py-20 bg-slate-100 border-t border-slate-200">
+    <section id="repair-form" className="py-20 bg-slate-100 dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800 transition-colors">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Form Container */}
-        <div className="bg-white rounded-3xl border border-slate-200 shadow-xl overflow-hidden">
+        <div className="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-xl overflow-hidden">
           
           {/* Header */}
           <div className="p-8 sm:p-10 bg-slate-900 text-white relative">
@@ -269,12 +269,12 @@ export const RepairForm: React.FC<RepairFormProps> = ({ initialService }) => {
             
             {/* Formspree Config Indicator */}
             {!isFormspreeConfigured && (
-              <div className="mb-8 p-4 rounded-xl bg-amber-50 border border-amber-200 text-amber-900 text-xs sm:text-sm flex items-start gap-3">
-                <Info className="w-5 h-5 text-amber-600 shrink-0 mt-0.5" />
+              <div className="mb-8 p-4 rounded-xl bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-900/60 text-amber-900 dark:text-amber-200 text-xs sm:text-sm flex items-start gap-3">
+                <Info className="w-5 h-5 text-amber-600 dark:text-amber-400 shrink-0 mt-0.5" />
                 <div>
-                  <p className="font-bold text-amber-950">Formspree Endpoint Configuration</p>
-                  <p className="text-amber-800 mt-0.5 leading-relaxed">
-                    The form is connected to Formspree endpoint <code className="bg-amber-100 px-1.5 py-0.5 rounded text-amber-950 font-mono text-xs">{FORMSPREE_ENDPOINT}</code>. When you are ready to receive real customer inquiries in your email inbox, update the Form ID in <code className="bg-amber-100 px-1.5 py-0.5 rounded text-amber-950 font-mono text-xs">src/config/business.ts</code>.
+                  <p className="font-bold text-amber-950 dark:text-amber-100">Formspree Endpoint Configuration</p>
+                  <p className="text-amber-800 dark:text-amber-300 mt-0.5 leading-relaxed">
+                    The form is connected to Formspree endpoint <code className="bg-amber-100 dark:bg-amber-900/60 px-1.5 py-0.5 rounded text-amber-950 dark:text-amber-100 font-mono text-xs">{FORMSPREE_ENDPOINT}</code>. When you are ready to receive real customer inquiries in your email inbox, update the Form ID in <code className="bg-amber-100 dark:bg-amber-900/60 px-1.5 py-0.5 rounded text-amber-950 dark:text-amber-100 font-mono text-xs">src/config/business.ts</code>.
                   </p>
                 </div>
               </div>
@@ -283,14 +283,14 @@ export const RepairForm: React.FC<RepairFormProps> = ({ initialService }) => {
             {/* Success State */}
             {submitStatus === 'success' ? (
               <div className="py-12 px-6 text-center space-y-6">
-                <div className="w-16 h-16 mx-auto rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center">
+                <div className="w-16 h-16 mx-auto rounded-full bg-emerald-100 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center">
                   <CheckCircle2 className="w-10 h-10" />
                 </div>
                 <div className="space-y-2 max-w-lg mx-auto">
-                  <h3 className="text-2xl font-bold text-slate-900">
+                  <h3 className="text-2xl font-bold text-slate-900 dark:text-white">
                     Request Received!
                   </h3>
-                  <p className="text-base text-slate-600 leading-relaxed">
+                  <p className="text-base text-slate-600 dark:text-slate-300 leading-relaxed">
                     Your request has been submitted successfully. Thank you for contacting Richard Phone Solutions. We will get in touch with you.
                   </p>
                 </div>
@@ -298,7 +298,7 @@ export const RepairForm: React.FC<RepairFormProps> = ({ initialService }) => {
                   <button
                     type="button"
                     onClick={handleReset}
-                    className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-semibold text-slate-700 bg-slate-100 hover:bg-slate-200 rounded-xl transition-colors cursor-pointer"
+                    className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-semibold text-slate-700 dark:text-slate-200 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 rounded-xl transition-colors cursor-pointer"
                   >
                     <RotateCcw className="w-4 h-4" />
                     <span>Submit Another Request</span>
@@ -320,11 +320,11 @@ export const RepairForm: React.FC<RepairFormProps> = ({ initialService }) => {
                 
                 {/* Error Banner */}
                 {submitStatus === 'error' && (
-                  <div className="p-4 rounded-xl bg-red-50 border border-red-200 text-red-900 text-sm flex items-start gap-3">
-                    <AlertCircle className="w-5 h-5 text-red-600 shrink-0 mt-0.5" />
+                  <div className="p-4 rounded-xl bg-red-50 dark:bg-red-950/40 border border-red-200 dark:border-red-900/60 text-red-900 dark:text-red-200 text-sm flex items-start gap-3">
+                    <AlertCircle className="w-5 h-5 text-red-600 dark:text-red-400 shrink-0 mt-0.5" />
                     <div>
-                      <p className="font-bold text-red-950">Submission Could Not Complete</p>
-                      <p className="text-xs sm:text-sm text-red-800 mt-1 leading-relaxed">
+                      <p className="font-bold text-red-950 dark:text-red-100">Submission Could Not Complete</p>
+                      <p className="text-xs sm:text-sm text-red-800 dark:text-red-300 mt-1 leading-relaxed">
                         {errorMessage}
                       </p>
                     </div>
@@ -345,14 +345,14 @@ export const RepairForm: React.FC<RepairFormProps> = ({ initialService }) => {
 
                 {/* Section 1: Contact Details */}
                 <div className="space-y-4">
-                  <h3 className="text-sm font-bold uppercase tracking-wider text-slate-500 border-b border-slate-200 pb-2">
+                  <h3 className="text-sm font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 border-b border-slate-200 dark:border-slate-800 pb-2">
                     Customer Information
                   </h3>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {/* Full Name */}
                     <div>
-                      <label htmlFor="fullName" className="block text-xs font-semibold text-slate-700 mb-1.5">
+                      <label htmlFor="fullName" className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
                         Full Name <span className="text-red-500">*</span>
                       </label>
                       <input
@@ -362,19 +362,19 @@ export const RepairForm: React.FC<RepairFormProps> = ({ initialService }) => {
                         value={formData.fullName}
                         onChange={handleChange}
                         placeholder="e.g., Kwame Mensah"
-                        className={`w-full px-3.5 py-2.5 text-sm rounded-xl border bg-white text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-600 transition-colors ${
-                          errors.fullName ? 'border-red-500 bg-red-50/20' : 'border-slate-300'
+                        className={`w-full px-3.5 py-2.5 text-sm rounded-xl border bg-white dark:bg-slate-800 text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-600 transition-colors ${
+                          errors.fullName ? 'border-red-500 bg-red-50/20' : 'border-slate-300 dark:border-slate-700'
                         }`}
                         required
                       />
                       {errors.fullName && (
-                        <p className="text-xs text-red-600 mt-1">{errors.fullName}</p>
+                        <p className="text-xs text-red-600 dark:text-red-400 mt-1">{errors.fullName}</p>
                       )}
                     </div>
 
                     {/* Phone Number */}
                     <div>
-                      <label htmlFor="phoneNumber" className="block text-xs font-semibold text-slate-700 mb-1.5">
+                      <label htmlFor="phoneNumber" className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
                         Phone Number <span className="text-red-500">*</span>
                       </label>
                       <input
@@ -384,21 +384,21 @@ export const RepairForm: React.FC<RepairFormProps> = ({ initialService }) => {
                         value={formData.phoneNumber}
                         onChange={handleChange}
                         placeholder="e.g., 0548395258"
-                        className={`w-full px-3.5 py-2.5 text-sm rounded-xl border bg-white text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-600 transition-colors ${
-                          errors.phoneNumber ? 'border-red-500 bg-red-50/20' : 'border-slate-300'
+                        className={`w-full px-3.5 py-2.5 text-sm rounded-xl border bg-white dark:bg-slate-800 text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-600 transition-colors ${
+                          errors.phoneNumber ? 'border-red-500 bg-red-50/20' : 'border-slate-300 dark:border-slate-700'
                         }`}
                         required
                       />
                       {errors.phoneNumber && (
-                        <p className="text-xs text-red-600 mt-1">{errors.phoneNumber}</p>
+                        <p className="text-xs text-red-600 dark:text-red-400 mt-1">{errors.phoneNumber}</p>
                       )}
                     </div>
                   </div>
 
                   {/* Email Address (optional) */}
                   <div>
-                    <label htmlFor="emailAddress" className="block text-xs font-semibold text-slate-700 mb-1.5">
-                      Email Address <span className="text-slate-400 text-[11px] font-normal">(Optional)</span>
+                    <label htmlFor="emailAddress" className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
+                      Email Address <span className="text-slate-400 dark:text-slate-500 text-[11px] font-normal">(Optional)</span>
                     </label>
                     <input
                       type="email"
@@ -407,26 +407,26 @@ export const RepairForm: React.FC<RepairFormProps> = ({ initialService }) => {
                       value={formData.emailAddress}
                       onChange={handleChange}
                       placeholder="e.g., kwame@example.com"
-                      className={`w-full px-3.5 py-2.5 text-sm rounded-xl border bg-white text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-600 transition-colors ${
-                        errors.emailAddress ? 'border-red-500 bg-red-50/20' : 'border-slate-300'
+                      className={`w-full px-3.5 py-2.5 text-sm rounded-xl border bg-white dark:bg-slate-800 text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-600 transition-colors ${
+                        errors.emailAddress ? 'border-red-500 bg-red-50/20' : 'border-slate-300 dark:border-slate-700'
                       }`}
                     />
                     {errors.emailAddress && (
-                      <p className="text-xs text-red-600 mt-1">{errors.emailAddress}</p>
+                      <p className="text-xs text-red-600 dark:text-red-400 mt-1">{errors.emailAddress}</p>
                     )}
                   </div>
                 </div>
 
                 {/* Section 2: Device Details */}
                 <div className="space-y-4 pt-2">
-                  <h3 className="text-sm font-bold uppercase tracking-wider text-slate-500 border-b border-slate-200 pb-2">
+                  <h3 className="text-sm font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 border-b border-slate-200 dark:border-slate-800 pb-2">
                     Phone & Service Details
                   </h3>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {/* Phone Brand */}
                     <div>
-                      <label htmlFor="phoneBrand" className="block text-xs font-semibold text-slate-700 mb-1.5">
+                      <label htmlFor="phoneBrand" className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
                         Phone Brand <span className="text-red-500">*</span>
                       </label>
                       <select
@@ -434,26 +434,26 @@ export const RepairForm: React.FC<RepairFormProps> = ({ initialService }) => {
                         name="phoneBrand"
                         value={formData.phoneBrand}
                         onChange={handleChange}
-                        className={`w-full px-3.5 py-2.5 text-sm rounded-xl border bg-white text-slate-900 focus:outline-none focus:ring-2 focus:ring-blue-600 transition-colors ${
-                          errors.phoneBrand ? 'border-red-500 bg-red-50/20' : 'border-slate-300'
+                        className={`w-full px-3.5 py-2.5 text-sm rounded-xl border bg-white dark:bg-slate-800 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-600 transition-colors ${
+                          errors.phoneBrand ? 'border-red-500 bg-red-50/20' : 'border-slate-300 dark:border-slate-700'
                         }`}
                         required
                       >
-                        <option value="">Select phone brand...</option>
+                        <option value="" className="dark:bg-slate-800">Select phone brand...</option>
                         {PHONE_BRANDS.map((brand) => (
-                          <option key={brand} value={brand}>
+                          <option key={brand} value={brand} className="dark:bg-slate-800">
                             {brand}
                           </option>
                         ))}
                       </select>
                       {errors.phoneBrand && (
-                        <p className="text-xs text-red-600 mt-1">{errors.phoneBrand}</p>
+                        <p className="text-xs text-red-600 dark:text-red-400 mt-1">{errors.phoneBrand}</p>
                       )}
                     </div>
 
                     {/* Phone Model */}
                     <div>
-                      <label htmlFor="phoneModel" className="block text-xs font-semibold text-slate-700 mb-1.5">
+                      <label htmlFor="phoneModel" className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
                         Phone Model <span className="text-red-500">*</span>
                       </label>
                       <input
@@ -463,20 +463,20 @@ export const RepairForm: React.FC<RepairFormProps> = ({ initialService }) => {
                         value={formData.phoneModel}
                         onChange={handleChange}
                         placeholder="e.g., iPhone 13 Pro, Camon 19, Galaxy A53"
-                        className={`w-full px-3.5 py-2.5 text-sm rounded-xl border bg-white text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-600 transition-colors ${
-                          errors.phoneModel ? 'border-red-500 bg-red-50/20' : 'border-slate-300'
+                        className={`w-full px-3.5 py-2.5 text-sm rounded-xl border bg-white dark:bg-slate-800 text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-600 transition-colors ${
+                          errors.phoneModel ? 'border-red-500 bg-red-50/20' : 'border-slate-300 dark:border-slate-700'
                         }`}
                         required
                       />
                       {errors.phoneModel && (
-                        <p className="text-xs text-red-600 mt-1">{errors.phoneModel}</p>
+                        <p className="text-xs text-red-600 dark:text-red-400 mt-1">{errors.phoneModel}</p>
                       )}
                     </div>
                   </div>
 
                   {/* Service Required */}
                   <div>
-                    <label htmlFor="serviceRequired" className="block text-xs font-semibold text-slate-700 mb-1.5">
+                    <label htmlFor="serviceRequired" className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
                       Service Required <span className="text-red-500">*</span>
                     </label>
                     <select
@@ -484,26 +484,26 @@ export const RepairForm: React.FC<RepairFormProps> = ({ initialService }) => {
                       name="serviceRequired"
                       value={formData.serviceRequired}
                       onChange={handleChange}
-                      className={`w-full px-3.5 py-2.5 text-sm rounded-xl border bg-white text-slate-900 focus:outline-none focus:ring-2 focus:ring-blue-600 transition-colors ${
-                        errors.serviceRequired ? 'border-red-500 bg-red-50/20' : 'border-slate-300'
+                      className={`w-full px-3.5 py-2.5 text-sm rounded-xl border bg-white dark:bg-slate-800 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-600 transition-colors ${
+                        errors.serviceRequired ? 'border-red-500 bg-red-50/20' : 'border-slate-300 dark:border-slate-700'
                       }`}
                       required
                     >
-                      <option value="">Select the service you need...</option>
+                      <option value="" className="dark:bg-slate-800">Select the service you need...</option>
                       {FORM_SERVICES.map((srv) => (
-                        <option key={srv} value={srv}>
+                        <option key={srv} value={srv} className="dark:bg-slate-800">
                           {srv}
                         </option>
                       ))}
                     </select>
                     {errors.serviceRequired && (
-                      <p className="text-xs text-red-600 mt-1">{errors.serviceRequired}</p>
+                      <p className="text-xs text-red-600 dark:text-red-400 mt-1">{errors.serviceRequired}</p>
                     )}
                   </div>
 
                   {/* Describe the Problem */}
                   <div>
-                    <label htmlFor="problemDescription" className="block text-xs font-semibold text-slate-700 mb-1.5">
+                    <label htmlFor="problemDescription" className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
                       Describe the Problem <span className="text-red-500">*</span>
                     </label>
                     <textarea
@@ -513,26 +513,26 @@ export const RepairForm: React.FC<RepairFormProps> = ({ initialService }) => {
                       value={formData.problemDescription}
                       onChange={handleChange}
                       placeholder="Please explain what happened (e.g., cracked screen, not charging, water damage, stuck on Apple logo, needs unlocking)..."
-                      className={`w-full px-3.5 py-2.5 text-sm rounded-xl border bg-white text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-600 transition-colors resize-y ${
-                        errors.problemDescription ? 'border-red-500 bg-red-50/20' : 'border-slate-300'
+                      className={`w-full px-3.5 py-2.5 text-sm rounded-xl border bg-white dark:bg-slate-800 text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-600 transition-colors resize-y ${
+                        errors.problemDescription ? 'border-red-500 bg-red-50/20' : 'border-slate-300 dark:border-slate-700'
                       }`}
                       required
                     />
                     {errors.problemDescription && (
-                      <p className="text-xs text-red-600 mt-1">{errors.problemDescription}</p>
+                      <p className="text-xs text-red-600 dark:text-red-400 mt-1">{errors.problemDescription}</p>
                     )}
                   </div>
                 </div>
 
                 {/* Section 3: Preferences & Additional Notes */}
                 <div className="space-y-4 pt-2">
-                  <h3 className="text-sm font-bold uppercase tracking-wider text-slate-500 border-b border-slate-200 pb-2">
+                  <h3 className="text-sm font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 border-b border-slate-200 dark:border-slate-800 pb-2">
                     Follow-Up Preferences
                   </h3>
 
                   {/* Preferred Contact Method */}
                   <div>
-                    <span className="block text-xs font-semibold text-slate-700 mb-2">
+                    <span className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-2">
                       Preferred Contact Method <span className="text-red-500">*</span>
                     </span>
                     <div className="flex items-center gap-6">
@@ -543,9 +543,9 @@ export const RepairForm: React.FC<RepairFormProps> = ({ initialService }) => {
                           value="Phone Call"
                           checked={formData.preferredContactMethod === 'Phone Call'}
                           onChange={handleChange}
-                          className="w-4 h-4 text-blue-600 focus:ring-blue-500 border-slate-300"
+                          className="w-4 h-4 text-blue-600 focus:ring-blue-500 border-slate-300 dark:border-slate-600"
                         />
-                        <span className="text-sm font-medium text-slate-800">Phone Call</span>
+                        <span className="text-sm font-medium text-slate-800 dark:text-slate-200">Phone Call</span>
                       </label>
 
                       <label className="flex items-center gap-2.5 cursor-pointer">
@@ -555,17 +555,17 @@ export const RepairForm: React.FC<RepairFormProps> = ({ initialService }) => {
                           value="WhatsApp"
                           checked={formData.preferredContactMethod === 'WhatsApp'}
                           onChange={handleChange}
-                          className="w-4 h-4 text-blue-600 focus:ring-blue-500 border-slate-300"
+                          className="w-4 h-4 text-blue-600 focus:ring-blue-500 border-slate-300 dark:border-slate-600"
                         />
-                        <span className="text-sm font-medium text-slate-800">WhatsApp Message</span>
+                        <span className="text-sm font-medium text-slate-800 dark:text-slate-200">WhatsApp Message</span>
                       </label>
                     </div>
                   </div>
 
                   {/* Additional Information */}
                   <div>
-                    <label htmlFor="additionalInformation" className="block text-xs font-semibold text-slate-700 mb-1.5">
-                      Additional Information <span className="text-slate-400 text-[11px] font-normal">(Optional)</span>
+                    <label htmlFor="additionalInformation" className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
+                      Additional Information <span className="text-slate-400 dark:text-slate-500 text-[11px] font-normal">(Optional)</span>
                     </label>
                     <textarea
                       id="additionalInformation"
@@ -574,14 +574,14 @@ export const RepairForm: React.FC<RepairFormProps> = ({ initialService }) => {
                       value={formData.additionalInformation}
                       onChange={handleChange}
                       placeholder="Any specific timing, previous repair attempts, or accessories brought with the phone..."
-                      className="w-full px-3.5 py-2.5 text-sm rounded-xl border border-slate-300 bg-white text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-600 transition-colors resize-y"
+                      className="w-full px-3.5 py-2.5 text-sm rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-600 transition-colors resize-y"
                     />
                   </div>
                 </div>
 
                 {/* Submit Action */}
-                <div className="pt-4 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4">
-                  <p className="text-xs text-slate-500">
+                <div className="pt-4 border-t border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4">
+                  <p className="text-xs text-slate-500 dark:text-slate-400">
                     Your details are securely transmitted to Richard Phone Solutions.
                   </p>
 

@@ -4,18 +4,18 @@ import { BUSINESS_INFO } from '../config/business';
 
 export const Contact: React.FC = () => {
   return (
-    <section id="contact" className="py-20 bg-white border-t border-slate-200">
+    <section id="contact" className="py-20 bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
         <div className="max-w-3xl mx-auto text-center space-y-3 mb-16">
-          <p className="text-xs font-bold text-blue-700 uppercase tracking-wider">
+          <p className="text-xs font-bold text-blue-700 dark:text-blue-400 uppercase tracking-wider">
             Reach Out To Us
           </p>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-950 tracking-tight text-balance">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-950 dark:text-white tracking-tight text-balance">
             Contact Richard Phone Solutions
           </h2>
-          <p className="text-base text-slate-600 leading-relaxed text-balance">
+          <p className="text-base text-slate-600 dark:text-slate-400 leading-relaxed text-balance">
             Visit us at Dome Old Station in Accra or reach out via phone and WhatsApp for immediate repair inquiries and support.
           </p>
         </div>
@@ -24,27 +24,27 @@ export const Contact: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
           
           {/* Phone Call */}
-          <div className="flex flex-col justify-between p-6 rounded-2xl bg-slate-50 border border-slate-200 hover:border-blue-400 hover:shadow-md transition-all">
+          <div className="flex flex-col justify-between p-6 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-800 hover:border-blue-400 dark:hover:border-blue-500 hover:shadow-md transition-all">
             <div className="space-y-3">
-              <div className="p-3 w-fit rounded-xl bg-blue-100/80 text-blue-700">
+              <div className="p-3 w-fit rounded-xl bg-blue-100/80 dark:bg-blue-950 text-blue-700 dark:text-blue-400">
                 <Phone className="w-5 h-5" />
               </div>
               <div>
-                <h3 className="text-xs font-bold uppercase tracking-wider text-slate-500">
+                <h3 className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
                   Call Us Directly
                 </h3>
-                <p className="text-lg font-bold text-slate-950 mt-1">
+                <p className="text-lg font-bold text-slate-950 dark:text-white mt-1">
                   {BUSINESS_INFO.phoneFormatted}
                 </p>
-                <p className="text-xs text-slate-600 mt-1">
+                <p className="text-xs text-slate-600 dark:text-slate-300 mt-1">
                   Speak directly with a repair technician.
                 </p>
               </div>
             </div>
-            <div className="pt-6 mt-4 border-t border-slate-200/60">
+            <div className="pt-6 mt-4 border-t border-slate-200/60 dark:border-slate-700/60">
               <a
                 href={BUSINESS_INFO.phoneTelLink}
-                className="inline-flex items-center gap-1.5 text-xs font-bold text-blue-600 hover:text-blue-800 transition-colors"
+                className="inline-flex items-center gap-1.5 text-xs font-bold text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition-colors"
               >
                 <span>Call Now</span>
                 <ExternalLink className="w-3.5 h-3.5" />
@@ -53,29 +53,29 @@ export const Contact: React.FC = () => {
           </div>
 
           {/* WhatsApp */}
-          <div className="flex flex-col justify-between p-6 rounded-2xl bg-emerald-50/50 border border-emerald-200/80 hover:border-emerald-400 hover:shadow-md transition-all">
+          <div className="flex flex-col justify-between p-6 rounded-2xl bg-emerald-50/50 dark:bg-emerald-950/20 border border-emerald-200/80 dark:border-emerald-800/60 hover:border-emerald-400 dark:hover:border-emerald-500 hover:shadow-md transition-all">
             <div className="space-y-3">
-              <div className="p-3 w-fit rounded-xl bg-emerald-100 text-emerald-700">
+              <div className="p-3 w-fit rounded-xl bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-400">
                 <MessageCircle className="w-5 h-5" />
               </div>
               <div>
-                <h3 className="text-xs font-bold uppercase tracking-wider text-emerald-700">
+                <h3 className="text-xs font-bold uppercase tracking-wider text-emerald-700 dark:text-emerald-400">
                   Chat on WhatsApp
                 </h3>
-                <p className="text-lg font-bold text-slate-950 mt-1">
+                <p className="text-lg font-bold text-slate-950 dark:text-white mt-1">
                   {BUSINESS_INFO.whatsappNumber}
                 </p>
-                <p className="text-xs text-slate-600 mt-1">
+                <p className="text-xs text-slate-600 dark:text-slate-300 mt-1">
                   Send photos of your damaged device or fault.
                 </p>
               </div>
             </div>
-            <div className="pt-6 mt-4 border-t border-emerald-200/60">
+            <div className="pt-6 mt-4 border-t border-emerald-200/60 dark:border-emerald-800/60">
               <a
                 href={BUSINESS_INFO.whatsappLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-700 hover:text-emerald-900 transition-colors"
+                className="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-700 dark:text-emerald-400 hover:text-emerald-900 dark:hover:text-emerald-300 transition-colors"
               >
                 <span>Start WhatsApp Chat</span>
                 <ExternalLink className="w-3.5 h-3.5" />
@@ -84,29 +84,29 @@ export const Contact: React.FC = () => {
           </div>
 
           {/* Workshop Location */}
-          <div className="flex flex-col justify-between p-6 rounded-2xl bg-slate-50 border border-slate-200 hover:border-blue-400 hover:shadow-md transition-all">
+          <div className="flex flex-col justify-between p-6 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-800 hover:border-blue-400 dark:hover:border-blue-500 hover:shadow-md transition-all">
             <div className="space-y-3">
-              <div className="p-3 w-fit rounded-xl bg-blue-100/80 text-blue-700">
+              <div className="p-3 w-fit rounded-xl bg-blue-100/80 dark:bg-blue-950 text-blue-700 dark:text-blue-400">
                 <MapPin className="w-5 h-5" />
               </div>
               <div>
-                <h3 className="text-xs font-bold uppercase tracking-wider text-slate-500">
+                <h3 className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
                   Workshop Location
                 </h3>
-                <p className="text-lg font-bold text-slate-950 mt-1">
+                <p className="text-lg font-bold text-slate-950 dark:text-white mt-1">
                   Dome Old Station
                 </p>
-                <p className="text-xs text-slate-600 mt-1">
+                <p className="text-xs text-slate-600 dark:text-slate-300 mt-1">
                   Accra, Ghana
                 </p>
               </div>
             </div>
-            <div className="pt-6 mt-4 border-t border-slate-200/60">
+            <div className="pt-6 mt-4 border-t border-slate-200/60 dark:border-slate-700/60">
               <a
                 href={BUSINESS_INFO.mapsLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-xs font-bold text-blue-600 hover:text-blue-800 transition-colors"
+                className="inline-flex items-center gap-1.5 text-xs font-bold text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition-colors"
               >
                 <Navigation className="w-3.5 h-3.5" />
                 <span>Get Directions</span>
@@ -115,27 +115,27 @@ export const Contact: React.FC = () => {
           </div>
 
           {/* Official Website */}
-          <div className="flex flex-col justify-between p-6 rounded-2xl bg-slate-50 border border-slate-200 hover:border-blue-400 hover:shadow-md transition-all">
+          <div className="flex flex-col justify-between p-6 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-800 hover:border-blue-400 dark:hover:border-blue-500 hover:shadow-md transition-all">
             <div className="space-y-3">
-              <div className="p-3 w-fit rounded-xl bg-blue-100/80 text-blue-700">
+              <div className="p-3 w-fit rounded-xl bg-blue-100/80 dark:bg-blue-950 text-blue-700 dark:text-blue-400">
                 <Globe className="w-5 h-5" />
               </div>
               <div>
-                <h3 className="text-xs font-bold uppercase tracking-wider text-slate-500">
+                <h3 className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
                   Website
                 </h3>
-                <p className="text-base font-bold text-slate-950 mt-1 break-all">
+                <p className="text-base font-bold text-slate-950 dark:text-white mt-1 break-all">
                   {BUSINESS_INFO.website}
                 </p>
-                <p className="text-xs text-slate-600 mt-1">
+                <p className="text-xs text-slate-600 dark:text-slate-300 mt-1">
                   Online service & repair booking.
                 </p>
               </div>
             </div>
-            <div className="pt-6 mt-4 border-t border-slate-200/60">
+            <div className="pt-6 mt-4 border-t border-slate-200/60 dark:border-slate-700/60">
               <a
                 href={BUSINESS_INFO.websiteUrl}
-                className="inline-flex items-center gap-1.5 text-xs font-bold text-blue-600 hover:text-blue-800 transition-colors"
+                className="inline-flex items-center gap-1.5 text-xs font-bold text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition-colors"
               >
                 <span>Visit Website</span>
                 <ExternalLink className="w-3.5 h-3.5" />

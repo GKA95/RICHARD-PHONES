@@ -49,18 +49,18 @@ export const WhyChooseUs: React.FC = () => {
   ];
 
   return (
-    <section className="py-20 bg-white border-t border-slate-200">
+    <section className="py-20 bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
         <div className="max-w-3xl mx-auto text-center space-y-3 mb-16">
-          <p className="text-xs font-bold text-blue-700 uppercase tracking-wider">
+          <p className="text-xs font-bold text-blue-700 dark:text-blue-400 uppercase tracking-wider">
             Technical Capabilities
           </p>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-950 tracking-tight text-balance">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-950 dark:text-white tracking-tight text-balance">
             Why Choose Richard Phone Solutions?
           </h2>
-          <p className="text-base text-slate-600 leading-relaxed text-balance">
+          <p className="text-base text-slate-600 dark:text-slate-400 leading-relaxed text-balance">
             Combining technical skill, specialized micro-soldering tools, and genuine smartphone solutions to address your mobile device needs.
           </p>
         </div>
@@ -70,17 +70,17 @@ export const WhyChooseUs: React.FC = () => {
           {highlights.map((item, index) => (
             <div
               key={item.title}
-              className={`p-6 rounded-2xl border border-slate-200/80 bg-slate-50/50 hover:bg-white hover:border-blue-400 hover:shadow-md transition-all duration-200 ${
+              className={`p-6 rounded-2xl border border-slate-200/80 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-800/50 hover:bg-white dark:hover:bg-slate-800 hover:border-blue-500 dark:hover:border-blue-500 hover:shadow-md transition-all duration-200 ${
                 index === highlights.length - 1 ? 'md:col-span-2 lg:col-span-1' : ''
               }`}
             >
-              <div className="p-3 w-fit rounded-xl bg-blue-50 mb-4">
+              <div className="p-3 w-fit rounded-xl bg-blue-50 dark:bg-blue-950/70 mb-4">
                 {item.icon}
               </div>
-              <h3 className="text-lg font-bold text-slate-900 mb-2">
+              <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">
                 {item.title}
               </h3>
-              <p className="text-sm text-slate-600 leading-relaxed">
+              <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
                 {item.description}
               </p>
             </div>

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { MessageCircle } from 'lucide-react';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
@@ -14,6 +14,30 @@ import { BUSINESS_INFO } from './config/business';
 
 export default function App() {
   const [selectedService, setSelectedService] = useState<string>('');
+  const [theme, setTheme] = useState<'light' | 'dark'>(() => {
+    if (typeof window !== 'undefined') {
+      const saved = localStorage.getItem('rps-theme') as 'light' | 'dark' | null;
+      if (saved) return saved;
+      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+    return 'light';
+  });
+
+  useEffect(() => {
+    const root = document.documentElement;
+    if (theme === 'dark') {
+      root.classList.add('dark');
+      root.style.colorScheme = 'dark';
+    } else {
+      root.classList.remove('dark');
+      root.style.colorScheme = 'light';
+    }
+    localStorage.setItem('rps-theme', theme);
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'));
+  };
 
   const scrollToRepairForm = () => {
     const element = document.getElementById('repair-form');
@@ -38,9 +62,13 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-slate-50 text-slate-900 selection:bg-blue-600 selection:text-white">
+    <div className="min-h-screen flex flex-col bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors selection:bg-blue-600 selection:text-white">
       {/* Fixed Navigation Bar */}
-      <Navbar onBookRepairClick={handleBookRepairClick} />
+      <Navbar
+        onBookRepairClick={handleBookRepairClick}
+        theme={theme}
+        onToggleTheme={toggleTheme}
+      />
 
       {/* Main Content Sections */}
       <main className="flex-grow">

@@ -1,6 +1,7 @@
 import React from 'react';
 import { MessageCircle, Phone, Sparkles, CheckCircle2 } from 'lucide-react';
 import { BUSINESS_INFO } from '../config/business';
+import iphoneShowcaseImg from '../assets/images/iphone_sales_showcase_1793915839613.jpg';
 
 export const PhoneSales: React.FC = () => {
   return (
@@ -83,10 +84,13 @@ export const PhoneSales: React.FC = () => {
           <div className="lg:col-span-5">
             <div className="relative rounded-2xl overflow-hidden border border-slate-700 shadow-2xl bg-slate-950 group">
               <img
-                src="/src/assets/images/iphone_sales_showcase_1793915839613.jpg"
+                src={iphoneShowcaseImg}
                 alt="New and pre-owned Apple iPhones on sleek dark slate surface"
                 className="w-full h-80 sm:h-96 lg:h-[460px] object-cover transition-transform duration-500 group-hover:scale-105"
                 referrerPolicy="no-referrer"
+                onError={(e) => {
+                  (e.currentTarget as HTMLImageElement).src = '/images/iphone_sales_showcase_1793915839613.jpg';
+                }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-transparent pointer-events-none" />
               

@@ -24,43 +24,43 @@ export const HowItWorks: React.FC = () => {
   ];
 
   return (
-    <section className="py-20 bg-slate-50 border-t border-slate-200">
+    <section className="py-20 bg-slate-50 dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
         <div className="max-w-3xl mx-auto text-center space-y-3 mb-16">
-          <p className="text-xs font-bold text-blue-700 uppercase tracking-wider">
+          <p className="text-xs font-bold text-blue-700 dark:text-blue-400 uppercase tracking-wider">
             Simple 3-Step Process
           </p>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-950 tracking-tight text-balance">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-950 dark:text-white tracking-tight text-balance">
             How It Works
           </h2>
-          <p className="text-base text-slate-600 leading-relaxed text-balance">
+          <p className="text-base text-slate-600 dark:text-slate-400 leading-relaxed text-balance">
             Getting your phone inspected and repaired at Richard Phone Solutions is straightforward.
           </p>
         </div>
 
         {/* Steps Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
-          {steps.map((item, index) => (
+          {steps.map((item) => (
             <div
               key={item.step}
-              className="relative flex flex-col p-8 rounded-2xl bg-white border border-slate-200 shadow-sm"
+              className="relative flex flex-col p-8 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm"
             >
               <div className="flex items-center justify-between mb-6">
-                <div className="p-3.5 rounded-xl bg-blue-50">
+                <div className="p-3.5 rounded-xl bg-blue-50 dark:bg-blue-950/70">
                   {item.icon}
                 </div>
-                <span className="text-2xl font-black text-blue-600/30 font-mono">
+                <span className="text-2xl font-black text-blue-600/30 dark:text-blue-400/30 font-mono">
                   {item.step}
                 </span>
               </div>
 
-              <h3 className="text-xl font-bold text-slate-900 mb-3">
+              <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3">
                 {item.title}
               </h3>
 
-              <p className="text-sm text-slate-600 leading-relaxed">
+              <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
                 {item.description}
               </p>
             </div>
