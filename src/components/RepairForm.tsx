@@ -9,6 +9,7 @@ import {
   Info,
   RotateCcw,
 } from 'lucide-react';
+import { motion } from 'motion/react';
 import {
   FORMSPREE_ENDPOINT,
   PHONE_BRANDS,
@@ -220,14 +221,20 @@ export const RepairForm: React.FC<RepairFormProps> = ({ initialService }) => {
   const isFormspreeConfigured = !FORMSPREE_ENDPOINT.includes('YOUR_FORM_ID');
 
   return (
-    <section id="repair-form" className="py-20 bg-slate-100 dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800 transition-colors">
+    <section id="repair-form" className="py-14 sm:py-20 bg-slate-100 dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800 transition-colors">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Form Container */}
-        <div className="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-xl overflow-hidden">
+        {/* Form Container with Motion */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-40px' }}
+          transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+          className="bg-white dark:bg-slate-900 rounded-2xl sm:rounded-3xl border border-slate-200 dark:border-slate-800 shadow-xl overflow-hidden"
+        >
           
           {/* Header */}
-          <div className="p-8 sm:p-10 bg-slate-900 text-white relative">
+          <div className="p-6 sm:p-10 bg-slate-900 text-white relative">
             <div className="space-y-2">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-blue-500/20 text-blue-300 text-xs font-semibold uppercase tracking-wider">
                 <Wrench className="w-3.5 h-3.5" />
@@ -265,7 +272,7 @@ export const RepairForm: React.FC<RepairFormProps> = ({ initialService }) => {
           </div>
 
           {/* Form Content */}
-          <div className="p-8 sm:p-10">
+          <div className="p-5 sm:p-10">
             
             {/* Formspree Config Indicator */}
             {!isFormspreeConfigured && (
@@ -362,7 +369,7 @@ export const RepairForm: React.FC<RepairFormProps> = ({ initialService }) => {
                         value={formData.fullName}
                         onChange={handleChange}
                         placeholder="e.g., Kwame Mensah"
-                        className={`w-full px-3.5 py-2.5 text-sm rounded-xl border bg-white dark:bg-slate-800 text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-600 transition-colors ${
+                        className={`w-full px-3.5 py-3 sm:py-2.5 text-base sm:text-sm rounded-xl border bg-white dark:bg-slate-800 text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-600 transition-colors ${
                           errors.fullName ? 'border-red-500 bg-red-50/20' : 'border-slate-300 dark:border-slate-700'
                         }`}
                         required
@@ -384,7 +391,7 @@ export const RepairForm: React.FC<RepairFormProps> = ({ initialService }) => {
                         value={formData.phoneNumber}
                         onChange={handleChange}
                         placeholder="e.g., 0548395258"
-                        className={`w-full px-3.5 py-2.5 text-sm rounded-xl border bg-white dark:bg-slate-800 text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-600 transition-colors ${
+                        className={`w-full px-3.5 py-3 sm:py-2.5 text-base sm:text-sm rounded-xl border bg-white dark:bg-slate-800 text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-600 transition-colors ${
                           errors.phoneNumber ? 'border-red-500 bg-red-50/20' : 'border-slate-300 dark:border-slate-700'
                         }`}
                         required
@@ -407,7 +414,7 @@ export const RepairForm: React.FC<RepairFormProps> = ({ initialService }) => {
                       value={formData.emailAddress}
                       onChange={handleChange}
                       placeholder="e.g., kwame@example.com"
-                      className={`w-full px-3.5 py-2.5 text-sm rounded-xl border bg-white dark:bg-slate-800 text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-600 transition-colors ${
+                      className={`w-full px-3.5 py-3 sm:py-2.5 text-base sm:text-sm rounded-xl border bg-white dark:bg-slate-800 text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-600 transition-colors ${
                         errors.emailAddress ? 'border-red-500 bg-red-50/20' : 'border-slate-300 dark:border-slate-700'
                       }`}
                     />
@@ -434,7 +441,7 @@ export const RepairForm: React.FC<RepairFormProps> = ({ initialService }) => {
                         name="phoneBrand"
                         value={formData.phoneBrand}
                         onChange={handleChange}
-                        className={`w-full px-3.5 py-2.5 text-sm rounded-xl border bg-white dark:bg-slate-800 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-600 transition-colors ${
+                        className={`w-full px-3.5 py-3 sm:py-2.5 text-base sm:text-sm rounded-xl border bg-white dark:bg-slate-800 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-600 transition-colors ${
                           errors.phoneBrand ? 'border-red-500 bg-red-50/20' : 'border-slate-300 dark:border-slate-700'
                         }`}
                         required
@@ -463,7 +470,7 @@ export const RepairForm: React.FC<RepairFormProps> = ({ initialService }) => {
                         value={formData.phoneModel}
                         onChange={handleChange}
                         placeholder="e.g., iPhone 13 Pro, Camon 19, Galaxy A53"
-                        className={`w-full px-3.5 py-2.5 text-sm rounded-xl border bg-white dark:bg-slate-800 text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-600 transition-colors ${
+                        className={`w-full px-3.5 py-3 sm:py-2.5 text-base sm:text-sm rounded-xl border bg-white dark:bg-slate-800 text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-600 transition-colors ${
                           errors.phoneModel ? 'border-red-500 bg-red-50/20' : 'border-slate-300 dark:border-slate-700'
                         }`}
                         required
@@ -484,7 +491,7 @@ export const RepairForm: React.FC<RepairFormProps> = ({ initialService }) => {
                       name="serviceRequired"
                       value={formData.serviceRequired}
                       onChange={handleChange}
-                      className={`w-full px-3.5 py-2.5 text-sm rounded-xl border bg-white dark:bg-slate-800 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-600 transition-colors ${
+                      className={`w-full px-3.5 py-3 sm:py-2.5 text-base sm:text-sm rounded-xl border bg-white dark:bg-slate-800 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-600 transition-colors ${
                         errors.serviceRequired ? 'border-red-500 bg-red-50/20' : 'border-slate-300 dark:border-slate-700'
                       }`}
                       required
@@ -513,7 +520,7 @@ export const RepairForm: React.FC<RepairFormProps> = ({ initialService }) => {
                       value={formData.problemDescription}
                       onChange={handleChange}
                       placeholder="Please explain what happened (e.g., cracked screen, not charging, water damage, stuck on Apple logo, needs unlocking)..."
-                      className={`w-full px-3.5 py-2.5 text-sm rounded-xl border bg-white dark:bg-slate-800 text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-600 transition-colors resize-y ${
+                      className={`w-full px-3.5 py-3 sm:py-2.5 text-base sm:text-sm rounded-xl border bg-white dark:bg-slate-800 text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-600 transition-colors resize-y ${
                         errors.problemDescription ? 'border-red-500 bg-red-50/20' : 'border-slate-300 dark:border-slate-700'
                       }`}
                       required
@@ -536,7 +543,7 @@ export const RepairForm: React.FC<RepairFormProps> = ({ initialService }) => {
                       Preferred Contact Method <span className="text-red-500">*</span>
                     </span>
                     <div className="flex items-center gap-6">
-                      <label className="flex items-center gap-2.5 cursor-pointer">
+                      <label className="flex items-center gap-2.5 cursor-pointer py-1">
                         <input
                           type="radio"
                           name="preferredContactMethod"
@@ -548,7 +555,7 @@ export const RepairForm: React.FC<RepairFormProps> = ({ initialService }) => {
                         <span className="text-sm font-medium text-slate-800 dark:text-slate-200">Phone Call</span>
                       </label>
 
-                      <label className="flex items-center gap-2.5 cursor-pointer">
+                      <label className="flex items-center gap-2.5 cursor-pointer py-1">
                         <input
                           type="radio"
                           name="preferredContactMethod"
@@ -574,7 +581,7 @@ export const RepairForm: React.FC<RepairFormProps> = ({ initialService }) => {
                       value={formData.additionalInformation}
                       onChange={handleChange}
                       placeholder="Any specific timing, previous repair attempts, or accessories brought with the phone..."
-                      className="w-full px-3.5 py-2.5 text-sm rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-600 transition-colors resize-y"
+                      className="w-full px-3.5 py-3 sm:py-2.5 text-base sm:text-sm rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-600 transition-colors resize-y"
                     />
                   </div>
                 </div>
@@ -588,7 +595,7 @@ export const RepairForm: React.FC<RepairFormProps> = ({ initialService }) => {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 text-sm font-bold text-white bg-blue-600 hover:bg-blue-700 active:bg-blue-800 disabled:bg-blue-400 rounded-xl transition-all shadow-md shadow-blue-600/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 cursor-pointer disabled:cursor-not-allowed"
+                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 min-h-[48px] text-base sm:text-sm font-bold text-white bg-blue-600 hover:bg-blue-700 active:bg-blue-800 disabled:bg-blue-400 rounded-xl transition-all shadow-md shadow-blue-600/20 active:scale-[0.98] focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 cursor-pointer disabled:cursor-not-allowed"
                   >
                     {isSubmitting ? (
                       <>
@@ -609,7 +616,7 @@ export const RepairForm: React.FC<RepairFormProps> = ({ initialService }) => {
 
           </div>
 
-        </div>
+        </motion.div>
       </div>
     </section>
   );

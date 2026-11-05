@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { motion } from 'motion/react';
 import { MessageCircle } from 'lucide-react';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
@@ -101,18 +102,23 @@ export default function App() {
       <Footer onSelectService={handleSelectService} />
 
       {/* Floating WhatsApp Quick Action Button */}
-      <a
+      <motion.a
+        initial={{ scale: 0, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ delay: 0.6, type: 'spring', stiffness: 260, damping: 20 }}
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
         href={BUSINESS_INFO.whatsappLink}
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Chat with Richard Phone Solutions on WhatsApp"
-        className="fixed bottom-6 right-6 z-40 flex items-center gap-2.5 px-4 py-3 bg-emerald-600 hover:bg-emerald-700 active:bg-emerald-800 text-white rounded-full shadow-lg shadow-emerald-900/25 transition-all duration-200 hover:scale-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 group"
+        className="fixed bottom-5 right-5 sm:bottom-6 sm:right-6 z-40 flex items-center gap-2.5 px-4 py-3 bg-emerald-600 hover:bg-emerald-700 active:bg-emerald-800 text-white rounded-full shadow-lg shadow-emerald-900/30 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 group"
       >
         <MessageCircle className="w-5 h-5 fill-current" />
         <span className="hidden sm:inline-block text-xs font-bold tracking-wide">
           WhatsApp Us
         </span>
-      </a>
+      </motion.a>
     </div>
   );
 }

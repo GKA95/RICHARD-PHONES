@@ -1,21 +1,28 @@
 import React from 'react';
 import { Cpu, ShieldCheck, Smartphone, Database } from 'lucide-react';
+import { motion } from 'motion/react';
 import { BUSINESS_INFO } from '../config/business';
 import technicianImg from '../assets/images/technician_micro_soldering_1793915839420.jpg';
 
 export const About: React.FC = () => {
   return (
-    <section id="about" className="py-20 bg-white dark:bg-slate-900 border-t border-slate-100 dark:border-slate-800 transition-colors">
+    <section id="about" className="py-14 sm:py-20 bg-white dark:bg-slate-900 border-t border-slate-100 dark:border-slate-800 transition-colors overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           
           {/* Left Column: Workshop Technician Image */}
-          <div className="lg:col-span-5 order-2 lg:order-1">
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: '-40px' }}
+            transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:col-span-5 order-2 lg:order-1"
+          >
             <div className="relative rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-lg bg-slate-900">
               <img
                 src={technicianImg}
                 alt="Skilled technician performing micro-soldering on a mobile phone logic board"
-                className="w-full h-80 sm:h-96 lg:h-[440px] object-cover"
+                className="w-full h-64 sm:h-80 lg:h-[440px] object-cover"
                 referrerPolicy="no-referrer"
                 onError={(e) => {
                   (e.currentTarget as HTMLImageElement).src = '/images/technician_micro_soldering_1793915839420.jpg';
@@ -23,22 +30,28 @@ export const About: React.FC = () => {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none" />
               
-              <div className="absolute bottom-4 left-4 right-4 p-4 rounded-xl bg-slate-900/90 backdrop-blur-md border border-white/10 text-white">
-                <p className="text-xs uppercase tracking-wider text-blue-400 font-semibold">
+              <div className="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4 p-3.5 sm:p-4 rounded-xl bg-slate-900/90 backdrop-blur-md border border-white/10 text-white">
+                <p className="text-[10px] sm:text-xs uppercase tracking-wider text-blue-400 font-semibold">
                   Advanced Diagnostics
                 </p>
-                <p className="text-sm font-semibold text-slate-100 mt-0.5">
+                <p className="text-xs sm:text-sm font-semibold text-slate-100 mt-0.5">
                   Component & Board-Level Repair
                 </p>
-                <p className="text-xs text-slate-400 mt-1">
+                <p className="text-[11px] sm:text-xs text-slate-400 mt-0.5">
                   Dome Old Station, Accra
                 </p>
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Right Column: About Narrative */}
-          <div className="lg:col-span-7 order-1 lg:order-2 space-y-6">
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: '-40px' }}
+            transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:col-span-7 order-1 lg:order-2 space-y-4 sm:space-y-6"
+          >
             
             <div className="space-y-2">
               <p className="text-xs font-bold text-blue-700 dark:text-blue-400 tracking-wider uppercase">
@@ -122,7 +135,7 @@ export const About: React.FC = () => {
               </div>
             </div>
 
-          </div>
+          </motion.div>
 
         </div>
       </div>
