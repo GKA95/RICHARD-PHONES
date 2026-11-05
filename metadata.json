@@ -1,0 +1,6 @@
+{
+  "name": "Richard Phone Solutions",
+  "description": "Professional mobile phone repairs, new & pre-owned iPhone sales, micro-soldering, unlocking, and technical support in Dome Old Station, Accra, Ghana.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
